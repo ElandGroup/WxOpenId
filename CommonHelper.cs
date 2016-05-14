@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -10,8 +11,18 @@ namespace WxOpenId
     public class CommonHelper
     {
         //xiaomiao's test wechat appid
-        public static string AppId = "wxfc82543f2ac38756";
-        public static string AppSecret = "d4624c36b6795d1d99dcf0547af5443d";
+        public static string AppId
+        {
+            get { return ConfigurationManager.AppSettings["appId"]; }
+        }
+        public static string AppSecret
+        {
+            get { return ConfigurationManager.AppSettings["appSecret"]; }
+        }
+        public static string BaseUri
+        {
+            get { return ConfigurationManager.AppSettings["baseUri"]; }
+        }
 
         public static void SetCookie(string name, string value)
         {
